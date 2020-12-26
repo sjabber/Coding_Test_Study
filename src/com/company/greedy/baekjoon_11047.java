@@ -1,8 +1,6 @@
 package com.company.greedy;
 
 
-import com.sun.corba.se.spi.orbutil.fsm.Input;
-
 import java.io.*;
 
 // 그리디(탐욕법) -> 당장 눈앞에 보이는 최적의 상황만 고르는 알고리즘

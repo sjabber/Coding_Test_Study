@@ -2,6 +2,7 @@ package com.company.for_coding_test_book;
 
 import java.util.Scanner;
 
+// Note 구현문제
 public class problem4_2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
