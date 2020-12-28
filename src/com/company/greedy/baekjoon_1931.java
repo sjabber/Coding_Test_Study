@@ -30,18 +30,42 @@ public class baekjoon_1931 {
 
             @Override
             public int compare(int[] o1, int[] o2) {
+                //Integer.compare 메서드에서 매개변수 1과 2중
+                // 2가 더 크면 음수(-1)를 반환하여 오름차순
+                // 같으면 0을 반환하여 오름차순
+                // 작으면 양수(1)를 반환하여 내림차순이다.
+                // 즉, return 값이 Note 0이나 -1이면 오름차순, 1이면 내림차순으로 정렬
 
-                // 종료시간이 같을 경우 시작시간이 빠른순으로 정렬해야한다.
+                // 종료시간이 같을 경우 (시작시간이 빠른순으로 정렬해야한다.)
                 if (o1[1] == o2[1]) {
-                    System.out.println(o1[0] - o2[0]);
+//                    System.out.println(o1[0] - o2[0]);
+//                    System.out.println("a");
                     return o1[0] - o2[0];
+                    // o2 나중에 거가 더 커서 음수를 반환하면 오름차순이 된다.
+                    // 오름차순이면 순서가 안바뀌는거랑 같다..
+                    // 먼저거가 더 커서 양수면 내림차순이 된다.
+                    // 즉 순서가 바뀐다.
+
+                    // Note 더 이해하기 쉽게 정리
+                    // Note 종료시간이 같은놈들 중에서는 시작시간이 더 빠른놈이 먼저 존재해야함
+                    // o1[0] o2[0] 중에서 o2[0]가 더 크다?
+                    // o1[0] -> o2[0] 오름차순
+                    // o1[1] o2[0] 중에서 o1[0]가 더 크다?
+                    // o2[0] -> o1[0] 내림차순
+
+                    // 시작시간이 두번째 매개변수(o2[0])가 더
                 }
 
-                System.out.println(o1[1] - o2[1]);
+                // 두번째 매개변수가 더크면 오름차순
+                // 아니면 내림차순정렬렬
+               System.out.println(o1[1] - o2[1]);
+                System.out.println("b");
                 return o1[1] - o2[1];
             }
 
         });
+
+//        Arrays.sort(time);
 
         int count = 0;
         int prev_end_time = 0;
@@ -58,3 +82,4 @@ public class baekjoon_1931 {
         System.out.println(count);
     }
 }
+// https://hooongs.tistory.com/63 참고
