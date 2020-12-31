@@ -1,4 +1,4 @@
-package com.company.for_coding_test_book.DFS;
+package com.company.for_coding_test_book.DFS_BFS;
 //Note 인접 리스트리스트
 // 연결리스트를 사용한다.
 

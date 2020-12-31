@@ -1,36 +1,22 @@
-package com.company.for_coding_test_book.BFS;
+package com.company.for_coding_test_book.DFS_BFS;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+// important DFS
+// Note dfs 특성상 백트래킹이 발생한다.
 
-public class problem5_9{
+public class problem5_8 {
+
     public static boolean[] visited = new boolean[9];
     public static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
-    // 인접 리스트, 동적배열안에 들어가는 값이 Integer를 element로 가지고 있는 동적배열이라고 제네릭스로 명시함.
-    // graph[0] -> 또다른 ArrayList 들어있음.
-    // graph.get(1) -> graph ArrayList의 1번 인덱스에 있는 객체를 리턴받는다.
 
-    // BFS 함수 정의
-    public static void bfs(int start) {
-        Queue<Integer> q = new LinkedList<>();
-        q.offer(start);
-        // 현재 노드를 방분처리한다.
-        visited[start] = true;
-
-        // 큐가 빌 때까지 반복한다.
-        while(!q.isEmpty()) {
-            // 큐에서 하나의 원소를 뽑아 출력
-            int x = q.poll();
-            System.out.print(x + " ");
-            // 해당 원소와 연결된, 아직 방문하지 않은 원소들을 큐에 삽입한다.
-            for(int i = 0; i < graph.get(x).size(); i++) {
-                int y = graph.get(x).get(i);
-                if(!visited[y]) {
-                    q.offer(y);
-                    visited[y] = true;
-                }
-            }
+    public static void dfs(int x) {
+        // 현재 노드를 방문처리한다.
+        visited[x] = true;
+        System.out.print(x + " ");
+        // 현재 노드와 연결된 다른 노드를 재귀적으로 방문한다.
+        for (int i = 0; i < graph.get(x).size(); i++) { // 인접노드 개수만큼 반복
+            int y = graph.get(x).get(i); // 인접노드의 번호가 몇번인지 알아낸다.
+            if (!visited[y]) dfs(y); //important 인접노드가 미방문이면 방문처리!
         }
     }
 
@@ -64,7 +50,6 @@ public class problem5_9{
 
         // 노드 6에 연결된 노드 정보 저장
         graph.get(6).add(7);
-        graph.get(6).add(8);
 
         // 노드 7에 연결된 노드 정보 저장
         graph.get(7).add(2);
@@ -75,6 +60,6 @@ public class problem5_9{
         graph.get(8).add(1);
         graph.get(8).add(7);
 
-        bfs(1);
+        dfs(1);
     }
 }

@@ -1,4 +1,4 @@
-package com.company.for_coding_test_book.DFS;
+package com.company.for_coding_test_book.DFS_BFS;
 // Note 인접행렬
 
 public class Adjacency_Matrix {
