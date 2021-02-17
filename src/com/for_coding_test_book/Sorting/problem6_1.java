@@ -1,5 +1,6 @@
 package com.for_coding_test_book.Sorting;
 
+// Note 선택정렬
 public class problem6_1 {
 
     public static void main(String[] args) {
@@ -15,9 +16,8 @@ public class problem6_1 {
                 }
             }
             // 스와프
-            // 스와프란 특정한 리스트가 주어졌을 경우 두 변수의 위치를 변경하는 작업을 의미
             int temp = arr[i]; // 원래 값 임시저장
-            arr[i] = arr[min_index]; // 위에서 바꾼 가장 인덱스의 값으로 변경
+            arr[i] = arr[min_index]; // 위에서 바꾼 인덱스의 값으로 변경
             arr[min_index] = temp;
         }
 

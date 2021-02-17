@@ -87,7 +87,6 @@ class HashTable {
         }
 
         public String getValue() {
-
             return this.value;
         }
 

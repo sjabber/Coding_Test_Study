@@ -24,22 +24,22 @@ public class DP {
 
     }
 
-    static void calc_change(){
-        change[0]=0;
+    static void calc_change() {
+        change[0] = 0;
 
-        for(int i=1; i<100; i++){
-            change[i] = min_change(i)+1;
+        for (int i = 1; i < 100; i++) {
+            change[i] = min_change(i) + 1;
         }
 
     }
 
-    static int min_change(int i){
-        int min = change[i-1];
-        if(i>=3){
-            if(min>change[i-3]) min = change[i-3];
+    static int min_change(int i) {
+        int min = change[i - 1];
+        if (i >= 3) {
+            if (min > change[i - 3]) min = change[i - 3];
         }
-        if(i>=4){
-            if(min>change[i-4]) min = change[i-4];
+        if (i >= 4) {
+            if (min > change[i - 4]) min = change[i - 4];
         }
         return min;
     }
