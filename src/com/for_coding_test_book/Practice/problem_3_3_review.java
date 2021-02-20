@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class problem3_3_review {
+public class problem_3_3_review {
 
     public static void main(String[] args){
 

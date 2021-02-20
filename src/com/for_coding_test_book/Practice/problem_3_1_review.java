@@ -1,6 +1,6 @@
 package com.for_coding_test_book.Practice;
 
-public class problem3_1_review {
+public class problem_3_1_review {
 
     public static void main(String[] args) {
         int n = 1260;

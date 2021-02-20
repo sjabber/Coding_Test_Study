@@ -24,7 +24,7 @@ public class problem8_5 {
             if (i % 3 == 0) {
                 dp[i] = Math.min(dp[i], dp[i / 3] + 1);
             }
-            // 현재으이 수가 5로 나누어 떨어지는 경우
+            // 현재의 수가 5로 나누어 떨어지는 경우
             if (i % 5 == 0) {
                 dp[i] = Math.min(dp[i], dp[i / 5] + 1);
             }
