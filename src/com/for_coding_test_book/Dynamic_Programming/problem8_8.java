@@ -3,7 +3,7 @@ package com.for_coding_test_book.Dynamic_Programming;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 효율적인 화폐구성
+// 효율적인 화폐구성 (오답..)
 public class problem8_8 {
 
     public static int[] d = new int[10001];
