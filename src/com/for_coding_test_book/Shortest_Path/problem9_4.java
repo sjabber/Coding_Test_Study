@@ -5,25 +5,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 // 나동빈 9_4 미래도시 문제 (다시 풀어보기..!)
-class Node_9 {
-
-    private int index;
-    private int distance;
-
-    public void Node_9(int index, int distance) {
-        this.index = index;
-        this.distance = distance;
-    }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-    public int getDistance() {
-        return this.distance;
-    }
-}
-
 public class problem9_4 {
 
     public static final int INF = (int) 1e9;
