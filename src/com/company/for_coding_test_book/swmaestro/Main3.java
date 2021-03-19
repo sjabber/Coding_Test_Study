@@ -5,68 +5,80 @@ import java.util.Scanner;
 
 public class Main3 {
 
-    public static char[] skill;
-    public static String[] result;
-    public static ArrayList<ArrayList<Character>> skill_list = new ArrayList<ArrayList<Character>>();
-
-    public static void solution(char input) {
-
-        for (int i = 0; i < skill.length; i++) {
-            char sk = skill[i];
-            int a = sk - '0';
-            System.out.print(sk + " ");
-            if (skill_list.contains(a)) {
-                for (int j = 0; j < skill_list.get(a).size(); i++) {
-                    sk = skill_list.get(a).get(j);
-                    int b = skill_list.get(a).get(j) - '0';
-                    System.out.print(sk + " ");
-                }
-            }
-        }
-
-        System.out.println();
-    }
+    public static ArrayList<ArrayList<Integer>> skill = new ArrayList<ArrayList<Integer>>();
+    public static boolean[] check = new boolean[128];
+    public static ArrayList<Character> result = new ArrayList<Character>();
 
     public static void main(String[] args) {
+        long beforeTime = System.currentTimeMillis();
+
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine(); // ex) h g f w r
+        String str = sc.nextLine();
+        str = str.replaceAll(" ", ""); // 공백제거
+        //sc.nextLine(); // 버퍼제거
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int tmp = ch - '0';
+            tmp = tmp + 48;
+            check[tmp] = true; // 해당 스킬이 단독스킬인지 검증하기 위함
+        }
+
+        // 스킬의 개수를 입력받는다.
+        int N = sc.nextInt();
         sc.nextLine(); // 버퍼 제거
 
-        int num = sc.nextInt();
-        sc.nextLine(); // 버퍼 제거
-
-        str = str.replaceAll(" ", ""); // 공백을 제거한다. hgfwr
-        skill = str.toCharArray();
-        // 0 -> h
-        // 1 -> g
-        // 2 -> f
-        // 3 -> w
-        // 4 -> r
-
-        // 스킬의 갯수만큼 정답을 담을 배열의 크기를 초기화한다.
-        result = new String[skill.length];
-
-        // 스킬 연계목록 초기화
-        for (int i = 0; i < 128; i++) { // ASCII 코드표 개수만큼 초기화
-            skill_list.add(new ArrayList<Character>());
+        // 아스키코드표 만큼의 스킬배열을 생성한다.
+        for (int i = 0; i < 128; i++) {
+            skill.add(new ArrayList<Integer>());
         }
 
         // 연계 스킬들을 입력받는다.
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < N; i++) {
             String str2 = sc.nextLine();
             str2 = str2.replaceAll(" ", "");
-
-            int a = str2.charAt(0) - '0'; // 단독 스킬
-            skill_list.get(a).add(str2.charAt(1));
-
-            // ex) h g -> [h][0] : g
-            // ex) h f -> [h][1] : f
+            int tmp1 = str2.charAt(0) - '0';
+            int tmp2 = str2.charAt(1) - '0';
+            tmp1 = tmp1 + 48;
+            tmp2 = tmp2 + 48;
+            check[tmp2] = false; // 해당 스킬은 단독스킬이 아님.
+            skill.get(tmp1).add(tmp2);
         }
 
+        int num = 0;
+        for (int i = 0; i < check.length; i++) {
+            if (check[i]) {
+                num = i;
+                break;
+            }
+        }
 
+        dfs(num);
 
+        // 시간재기
+        long afterTime = System.currentTimeMillis();
+        long secDiffTime = (afterTime - beforeTime);
+        System.out.println("수행시간(ms) : " + secDiffTime);
+    }
 
+    public static void dfs(int num) {
+        char ch = (char) num;
+        result.add(ch);
 
+        if (!skill.get(num).isEmpty()) {
+            for (int i = 0; i < skill.get(num).size(); i++) {
 
+                int tmp = skill.get(num).get(i);
+                dfs(tmp);
+            }
+            result.remove(result.size() - 1);
+        } else {
+            int size = result.size();
+            for (int i = 0; i < size; i++) {
+                System.out.print(result.get(i) + " ");
+            }
+            System.out.println();
+            result.remove(size - 1);
+        }
     }
 }
