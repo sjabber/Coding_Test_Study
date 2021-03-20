@@ -1,4 +1,4 @@
-package com;
+package com.DFS_BFS;
 
 import java.util.ArrayList;
 import java.util.Scanner;
