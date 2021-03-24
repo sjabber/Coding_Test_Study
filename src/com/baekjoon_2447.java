@@ -22,9 +22,10 @@ public class baekjoon_2447 {
             for (int j = 0; j < N; j++) {
                 sb.append(arr[i][j]);
             }
+            sb.append("\n");
         }
 
-        System.out.println(sb);
+        System.out.print(sb);
     }
 
     // N은 사이즈를 의미한다.
@@ -60,5 +61,4 @@ public class baekjoon_2447 {
         }
 
     }
-
 }
