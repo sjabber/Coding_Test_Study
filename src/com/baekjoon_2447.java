@@ -53,9 +53,9 @@ public class baekjoon_2447 {
             for (int j = y; j < y + N; j += size) {
                 count++;
                 if (count == 5) {
-                    star(i, j, size, true);
+                    star(i, j, size, true); // ok = true, N = size
                 } else {
-                    star(i, j, size, false);
+                    star(i, j, size, false); // ok = false, N = size
                 }
             }
         }
