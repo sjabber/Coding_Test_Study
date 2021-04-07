@@ -1,8 +1,6 @@
 package com;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 // 백트레킹 문제
@@ -24,17 +22,16 @@ public class baekjoon_15651 {
         arr = new int[M];
         //visited = new boolean[N];
         dfs(N, M, 0);
-        bw.flush();
+
+        System.out.print(sb);
     }
 
     public static void dfs(int N, int M, int depth) {
         if (depth == M) {
             for (int val : arr) {
-                String str = String.valueOf(val) + " ";
-                bw.write(str);
+                sb.append(val + " ");
             }
-            bw.write("\n");
-            System.out.println();
+            sb.append("\n");
             return;
         }
 
