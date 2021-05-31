@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+// getSmallestNode() 메서드가 필요없어진다. => 우선순위가 높은 순으로 알아서 정렬되기 때문임.
 class Node2 implements Comparable<Node2> {
 
     private int index;
@@ -23,7 +24,7 @@ class Node2 implements Comparable<Node2> {
         return this.distance;
     }
 
-    // 거리(비용)가 짧은게 우선순위를 가질 수 있도록 설정
+    // 거리(비용)가 짧은게 우선순위를 가질 수 있도록 정렬기준을 세워준다.
     @Override
     public int compareTo(Node2 other) {
         if (this.distance < other.distance) {
@@ -55,7 +56,7 @@ public class problem9_2 {
             Node2 node2 = pq.poll();
             int dist = node2.getDistance(); // 현재 노드까지의 비용
             int now = node2.getIndex(); // 현재 노드
-            // 현재 노드가 이미 처리된 적이 있는 노드라면 무시
+            // 현재 노드가 이미 처리된 적이 있는 노드라면 무시 (Note 현재 값보다 최단거리가 기록되어있는 경우)
             if (d[now] < dist) continue;
             // 현재 노드와 연결된 다른 인접한 노드들을 확인
             for (int i=0; i < graph.get(now).size(); i++) {

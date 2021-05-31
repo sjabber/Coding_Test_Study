@@ -42,6 +42,9 @@ public class problem9_4 {
         K = sc.nextInt();
 
         // 점화식에 따라 플로이드 워셜 알고리즘 수행
+        //Note 플로이드 워셜을 적용해야 하는 이유
+        // 다익스트라 => 1 -> K, 1 -> X 의 최단 경로는 구할 수 있으나
+        // K -> X 를 구할수는 없기 때문임.
         for (int k = 1; k <= N; k++) {
             for (int a = 1; a <= N; a++) {
                 for (int b = 1; b <= N; b++) {

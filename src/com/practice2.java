@@ -1,85 +1,80 @@
 package com;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class practice2 {
 
-    static int sum;
+    static boolean[] bool = new boolean[46];
+    static int[] number = new int[6];
 
     public static void main(String[] args) {
+//
+//        int[] array_int = new int[300];
+//
+//        for (int i = 0;  i < array_int.length; i++) {
+//            array_int[i] = (int) (Math.random() * 100);
+//            System.out.println(array_int[i]);
+//            hashSet.add(array_int[i]);
+//        }
+//        System.out.println();
+//        System.out.println("서로 다른 숫자의 개수 : " + hashSet.size());
 
-//        int c = 0;
-//        int d = 3;
-////        switch (c) {
-////            case 5 :
-////                N += 5;
-////            case 6 :
-////                N += 6;
-////            case 7 :
-////                N += 7;
-////            case 8 :
-////                N += 8;
-////            case 9 :
-////                N += 9;
-////            case 10 :
-////                N += 10;
-////        }
-////        System.out.print(N);
+//        int[] lotto_num = new int[45];
+//        for (int i = 0; i < 45; i++) {
+//            lotto_num[i] = i + 1;
+//        }
 //
-//        switch (c) {
-//            case 0:
-//                switch (d) {
-//                    case 3:
-//                        if (d == 3) {
-//                            System.out.println("안에서");
-//                            break;
-//                        }
-//                        System.out.println("안에서 확인");
+//        for (int i = 0; i < 1000; i++) {
+//            int num = (int) (Math.random() * 44) + 1;
+//            int temp = lotto_num[0];
+//            lotto_num[0] = lotto_num[num];
+//            lotto_num[num] = temp;
+//        }
 //
-//                    case 2:
-//                        System.out.println(c);
-//                        break;
-//                }
-//                System.out.println("확인0");
-//                break;
-//
-//            case 1:
-//                System.out.println("확인1");
-//                break;
-//
-//            case 2:
-//                System.out.println("확인2");
-//                break;
-//
-//            case 3:
-//                System.out.println("확인3");
-//                break;
-//
-//            case 4:
-//                System.out.println("확인4");
-//                break;
+//        for (int i = 1; i < 7; i++) {
+//            System.out.println("i : " + i + " : " + lotto_num[i-1]);
 //        }
 
-        int num_1 = 10;
-        double num_2 = 10.0;
-        String str = "10 string";
-
-        sum_i(num_1); // 정수를 출력한다.
-
-        sum_i(num_2); // 실수를 출력한다.
-
-        sum_i(str); // 문자열을 출력한다.
+        lotto();
+        System.out.println("-----------------");
+        SelectSort(number);
+        System.out.print("-----------------");
     }
 
-    static void sum_i (int a) {
-        System.out.println(a);
+    static void lotto() {
+        bool[0] = true;
+        int count = 0;
+        while (count < 6) {
+            int num = (int) (Math.random() * 46);
+            if (!bool[num]) {
+                bool[num] = true;
+                number[count] = num;
+                //System.out.print(num + " ");
+                count++;
+            }
+        }
     }
 
-    static void sum_i (double b) {
-        System.out.println(b);
-    }
+    static void SelectSort(int[] arr) {
 
-    static void sum_i (String c) {
-        System.out.println(c);
+        for (int i = 0; i < arr.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j; // 가장 작은 수의 인덱스를 저장
+                }
+            }
+
+            // 스와프
+            int temp = arr[i]; // 원래 값 임시저장
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 }

@@ -1,7 +1,5 @@
 package com.for_coding_test_book.Binary_Search;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

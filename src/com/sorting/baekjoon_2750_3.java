@@ -5,8 +5,6 @@ package com.sorting;
 import java.io.*;
 import java.util.Arrays;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
-
 public class baekjoon_2750_3 {
 
     public static void main(String[] args) throws IOException {
@@ -28,7 +26,7 @@ public class baekjoon_2750_3 {
             }
 
         } catch (IOException e) {
-            log.print("Input Error Occurred. ");
+            System.out.println("Input Error Occurred. ");
         }
 
     }

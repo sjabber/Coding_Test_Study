@@ -1,7 +1,5 @@
 package com.for_coding_test_book.Sorting;
 
-import jdk.management.resource.internal.inst.FileOutputStreamRMHooks;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;

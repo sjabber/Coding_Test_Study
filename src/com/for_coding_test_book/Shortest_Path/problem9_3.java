@@ -57,6 +57,7 @@ public class problem9_3 {
         for (int k = 1; k <= n; k++) {
             for (int a = 1; a <= n; a++) {
                 for (int b = 1; b <= n; b++) {
+                    if (a == b) continue;
                     graph[a][b] = Math.min(graph[a][b], graph[a][k] + graph[k][b]);
                 }
             }

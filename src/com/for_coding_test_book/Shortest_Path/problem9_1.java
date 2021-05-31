@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+// 가장 간단한 다익스트라 알고리즘 소스코드.
 class Node {
 
     private int index;
@@ -46,7 +47,7 @@ public class problem9_1 {
         int min_value = INF;
         int index = 0;// 가장 최단 거리가 짧은 노드의 인덱스 번호
         for (int i = 1; i <= n; i++) {
-            if (d[i] < min_value && !visited[i]) {
+            if (!visited[i] && d[i] < min_value) {
                 min_value = d[i];
                 index = i;
             }
@@ -69,7 +70,7 @@ public class problem9_1 {
             // 현재 노드와 연결된 다른 노드를 확인
             for (int j = 0; j < graph.get(now).size(); j++) {
                 int cost = d[now] + graph.get(now).get(j).getDistance();
-                // 현재 노드를 거쳐서 다른 노드로 이동하는 거리가 더 짧은 경우
+                // 현재 노드를 거쳐서 다른 노드로 이동하는 (Note) 거리가 더 짧은 경우 갱신
                 if (cost < d[graph.get(now).get(j).getIndex()]) {
                     d[graph.get(now).get(j).getIndex()] = cost;
                 }
