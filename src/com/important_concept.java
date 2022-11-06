@@ -33,7 +33,7 @@ public class important_concept {
         System.out.println(sc2.aa);
         System.out.println(sc2.bb);
         System.out.println();
-//        System.out.println(sc2.aaa);
+//        System.out.println(sc2.aaa); // 지역변수는 부모클래스의 지역변수만 사용 가능
 //        System.out.println(sc2.bbb);
         sc2.print();
         System.out.println(); // Note 메서드는 오버라이딩된 메서드가 호출된다.

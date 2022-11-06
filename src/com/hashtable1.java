@@ -21,7 +21,7 @@ class HashTable {
         // 각 글자들의 값이 다 더해지면 해시코드 완성
 
         return hashCode;
-}
+    }
 
     int convertToIndex(int hashCode) {
 
@@ -37,7 +37,6 @@ class HashTable {
 
         for(Node node : list) {
             if(node.key.equals(key)) {
-
                 return node;
             }
         }
