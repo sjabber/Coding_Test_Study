@@ -2,9 +2,8 @@ package com.for_coding_test_book.Binary_Search;
 
 import java.util.Scanner;
 
+// Note 반복문을 사용한 이진탐색
 public class problem7_3 {
-
-    // 반복문을 사용한 이진탐색
     public static int binarySearch(int[] arr, int target, int start, int end) {
         while (start <= end) {
             int mid = (start + end) / 2;

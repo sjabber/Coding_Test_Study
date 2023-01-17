@@ -1,5 +1,6 @@
 package com.for_coding_test_book.Sorting;
 
+// Note 삽입정렬
 public class problem6_3 {
 
     public static void main(String[] args) {

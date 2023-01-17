@@ -3,7 +3,7 @@ package com.for_coding_test_book.Binary_Search;
 
 import java.util.Scanner;
 
-// 재귀함수로 구현한 이진탐색
+// Note 재귀함수로 구현한 이진탐색
 public class problem7_2 {
 
     public static int binarySearch(int[] arr, int target, int start, int end) {
